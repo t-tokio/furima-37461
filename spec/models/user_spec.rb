@@ -125,11 +125,18 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include('First name katakana カタカナ文字を使用してください')
       end
 
-      it 'passwordとpassword_comfirmationが半角英数字混合でなければ登録できない' do
+      it 'passwordとpassword_comfirmationが半角数字のみでは登録できない' do
         @user.password = '123456'
         @user.password_confirmation = '123456'
         @user.valid?
         expect(@user.errors.full_messages).to include('Password 半角英数を両方含む必要があります')
+      end
+
+      it 'passwordとpassword_comfirmationが半角英字のみでは登録できない' do
+        @user.password = 'aiueo'
+        @user.password_confirmation = 'aiueo'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Password 半角英数を両方含む必要があります")
       end
     end
   end

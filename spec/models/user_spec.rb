@@ -136,7 +136,7 @@ RSpec.describe User, type: :model do
         @user.password = 'aiueo'
         @user.password_confirmation = 'aiueo'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password 半角英数を両方含む必要があります")
+        expect(@user.errors.full_messages).to include('Password 半角英数を両方含む必要があります')
       end
     end
   end

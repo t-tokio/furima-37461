@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
-    # @items = Item.includes(:user)
+    @items = Item.all.order(id: :desc)
   end
 
   def new

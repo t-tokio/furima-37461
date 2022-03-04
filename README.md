@@ -30,7 +30,7 @@
 | shipping_cost_bearer_id   | integer     | null: false |
 | prefectures_id            | integer     | null: false |
 | shipping_days_id          | integer     | null: false |
-| price                     | interger    | null: false |
+| price                     | integer    | null: false |
 | user                      | references  | null: false |
 
 ### Association

@@ -11,7 +11,7 @@ class PurchaseShippingAddress
     validates :municipality
     validates :address
     validates :tel, format: { with: /\A\d{10,11}\z/ }
-    validates :token, presence: true
+    validates :token
   end
 
   def save

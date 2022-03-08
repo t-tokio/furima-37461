@@ -53,10 +53,10 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Shipping cost bearer can't be blank")
       end
 
-      it 'prefecturesが未選択では出品できない' do
-        @item.prefectures_id = 1
+      it 'prefectureが未選択では出品できない' do
+        @item.prefecture_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefectures can't be blank")
+        expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
 
       it 'shipping_daysが未選択では出品できない' do

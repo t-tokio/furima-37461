@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe PurchaseShippingAddress, type: :model do
-  describe "配送先情報の保存" do
+  describe '配送先情報の保存' do
     before do
       user = FactoryBot.create(:user)
       item = FactoryBot.create(:item)
@@ -18,7 +18,7 @@ RSpec.describe PurchaseShippingAddress, type: :model do
         expect(@purchase_shipping_address).to be_valid
       end
 
-      it  "tokenがあれば保存ができること" do
+      it 'tokenがあれば保存ができること' do
         expect(@purchase_shipping_address).to be_valid
       end
     end
@@ -57,12 +57,12 @@ RSpec.describe PurchaseShippingAddress, type: :model do
       it 'telが10桁未満では保存できないこと' do
         @purchase_shipping_address.tel = '123456789'
         @purchase_shipping_address.valid?
-        expect(@purchase_shipping_address.errors.full_messages).to include("Tel is invalid")
+        expect(@purchase_shipping_address.errors.full_messages).to include('Tel is invalid')
       end
       it 'telが12桁以上だと保存できないこと' do
         @purchase_shipping_address.tel = '123456789123'
         @purchase_shipping_address.valid?
-        expect(@purchase_shipping_address.errors.full_messages).to include("Tel is invalid")
+        expect(@purchase_shipping_address.errors.full_messages).to include('Tel is invalid')
       end
       it 'userが紐付いていないと保存できないこと' do
         @purchase_shipping_address.user_id = nil
@@ -74,7 +74,7 @@ RSpec.describe PurchaseShippingAddress, type: :model do
         @purchase_shipping_address.valid?
         expect(@purchase_shipping_address.errors.full_messages).to include("Item can't be blank")
       end
-      it "tokenが空では登録できないこと" do
+      it 'tokenが空では登録できないこと' do
         @purchase_shipping_address.token = nil
         @purchase_shipping_address.valid?
         expect(@purchase_shipping_address.errors.full_messages).to include("Token can't be blank")
